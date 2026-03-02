@@ -1,0 +1,208 @@
+:root {
+    --bg-color: #050a15;
+    --panel-bg: #0b1329;
+    --text-primary: #e0f2fe;
+    --text-secondary: #7dd3fc;
+    --accent-blue: #0284c7;
+    --accent-blue-hover: #0369a1;
+    --accent-glow: #38bdf8;
+    --danger: #ef4444;
+    --safe: #10b981;
+    --border-color: #1e3a8a;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-image: 
+        radial-gradient(circle at 15% 50%, rgba(2, 132, 199, 0.1), transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(56, 189, 248, 0.1), transparent 25%);
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    background-color: var(--panel-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 0 30px rgba(2, 132, 199, 0.2), inset 0 0 20px rgba(2, 132, 199, 0.05);
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Tech decorative elements */
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--accent-glow), transparent);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--text-primary);
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+    letter-spacing: 2px;
+}
+
+header p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 8px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+input {
+    background-color: rgba(5, 10, 21, 0.8);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 12px 15px;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-family: 'Roboto', monospace;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--accent-glow);
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+}
+
+button {
+    width: 100%;
+    padding: 16px;
+    background-color: transparent;
+    border: 2px solid var(--accent-blue);
+    color: var(--accent-glow);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+button:hover {
+    background-color: rgba(2, 132, 199, 0.2);
+    box-shadow: 0 0 20px rgba(2, 132, 199, 0.4);
+    text-shadow: 0 0 5px var(--text-primary);
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#result-container {
+    margin-top: 40px;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    padding-top: 30px;
+}
+
+#result-container h2 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.result-box {
+    padding: 20px;
+    border-radius: 8px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
+    border: 1px solid var(--border-color);
+    background-color: rgba(5, 10, 21, 0.8);
+}
+
+.diabetic {
+    border-color: var(--danger);
+    color: #fca5a5;
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.2);
+}
+
+.non-diabetic {
+    border-color: var(--safe);
+    color: #6ee7b7;
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+}
+
+.error-box {
+    padding: 15px;
+    background-color: rgba(239, 68, 68, 0.1);
+    border: 1px solid var(--danger);
+    color: #fca5a5;
+    border-radius: 6px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+footer {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #475569;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+}
